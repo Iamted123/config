@@ -1,0 +1,6 @@
+2023/06/12-19:53:06.894 ce2c Creating DB /home/donji/.config/chromium/Default/IndexedDB/https_www.yelp.com_0.indexeddb.leveldb since it was missing.
+2023/06/12-19:53:06.911 ce2c Reusing MANIFEST /home/donji/.config/chromium/Default/IndexedDB/https_www.yelp.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/06/12-19:53:59.234 ce2d Level-0 table #5: started
+2023/06/12-19:53:59.237 ce2d Level-0 table #5: 818 bytes OK
+2023/06/12-19:53:59.241 ce2d Delete type=0 #3
+2023/06/12-19:53:59.241 ce2d Manual compaction at level-0 from (begin) .. (end); will stop at (end)

@@ -1,0 +1,6 @@
+2023/06/22-03:20:17.091 a589 Creating DB /home/donji/.config/chromium/Default/IndexedDB/https_jobs.lumen.com_0.indexeddb.leveldb since it was missing.
+2023/06/22-03:20:17.101 a589 Reusing MANIFEST /home/donji/.config/chromium/Default/IndexedDB/https_jobs.lumen.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/06/22-13:55:07.275 17d1a Level-0 table #5: started
+2023/06/22-13:55:07.302 17d1a Level-0 table #5: 1579 bytes OK
+2023/06/22-13:55:15.410 17d1a Delete type=0 #3
+2023/06/22-13:55:16.083 17d1a Manual compaction at level-0 from (begin) .. (end); will stop at (end)

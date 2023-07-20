@@ -1,0 +1,19 @@
+[desktop-monitor-0]
+nemo-icon-view-keep-aligned=true
+nemo-icon-view-auto-layout=true
+nemo-icon-view-layout-timestamp=1681251883
+desktop-grid-adjust=100;107;
+desktop-horizontal=false
+nemo-icon-view-zoom-level=3
+
+[HOTDOGINSTALLER.volume]
+nemo-icon-position-timestamp=1672778136
+nemo-icon-position=91,28
+monitor=0
+icon-scale=1
+
+[Donji USB.volume]
+nemo-icon-position=91,58
+monitor=0
+icon-scale=1
+nemo-icon-position-timestamp=1681120665

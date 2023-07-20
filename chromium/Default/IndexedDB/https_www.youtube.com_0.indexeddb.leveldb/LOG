@@ -1,0 +1,9 @@
+2023/06/21-04:12:06.156 1d20c Reusing MANIFEST /home/donji/.config/chromium/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/06/21-04:12:06.156 1d20c Recovering log #32
+2023/06/21-04:12:06.157 1d20c Reusing old log /home/donji/.config/chromium/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/000032.log 
+2023/06/21-04:12:07.138 1d20c Compacting 1@1 + 1@2 files
+2023/06/21-04:12:07.146 1d20c Generated table #35@1: 970 keys, 98182 bytes
+2023/06/21-04:12:07.146 1d20c Compacted 1@1 + 1@2 files => 98182 bytes
+2023/06/21-04:12:07.150 1d20c compacted to: files[ 0 0 1 0 0 0 0 ]
+2023/06/21-04:12:07.150 1d20c Delete type=2 #31
+2023/06/21-04:12:07.150 1d20c Delete type=2 #33

@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =7
+let g:netrw_dirhist_7='/home/d/Documents/rolodex'
+let g:netrw_dirhist_6='/home/d/Documents'
+let g:netrw_dirhist_5='/home/d'
+let g:netrw_dirhist_4='/home/d/Documents/rolodex/FTXUI/examples'
+let g:netrw_dirhist_3='/home/d/Documents/rolodex/FTXUI/examples/dom'
+let g:netrw_dirhist_2='/home/d/Documents/rolodex/FTXUI/examples'
+let g:netrw_dirhist_1='/home/d/Documents/rolodex/FTXUI/examples/html'
+let g:netrw_dirhist_0='/home/d/Documents/rolodex/FTXUI/examples'
+let g:netrw_dirhist_9='/home/d/Documents/rolodex/FTXUI'
+let g:netrw_dirhist_8='/home/d/Documents/rolodex'

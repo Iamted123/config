@@ -1,0 +1,6 @@
+2023/06/22-21:41:47.036 22426 Reusing MANIFEST /home/donji/.config/chromium/Default/IndexedDB/https_mail.google.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/06/22-21:41:47.037 22426 Recovering log #53
+2023/06/22-21:41:47.056 22426 Reusing old log /home/donji/.config/chromium/Default/IndexedDB/https_mail.google.com_0.indexeddb.leveldb/000053.log 
+2023/06/22-21:41:47.111 2241b Level-0 table #59: started
+2023/06/22-21:41:47.184 2241b Level-0 table #59: 2439012 bytes OK
+2023/06/22-21:41:47.191 2241b Delete type=0 #53

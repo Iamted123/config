@@ -1,0 +1,210 @@
+{
+    "Common code": [
+        {
+            "x": 500,
+            "y": 650,
+            "height": 348,
+            "width": 395,
+            "color": "yellow",
+            "title": "Compiling",
+            "text": "## Build instructions:\n~~~bash\nmkdir build\ncd build\ncmake ..\nmake -j\ncd ../target\n./ftxui-starter\n~~~\n\n cmake --build .\n./ftxui-starter \n\n\n#### Webassembly build:\n~~~bash\nmkdir build_emscripten && cd build_emscripten\nemcmake cmake ..\nmake -j\n./run_webassembly.py\n(visit localhost:8000)\n~~~"
+        },
+        {
+            "x": 130,
+            "y": 708,
+            "height": 115,
+            "width": 406,
+            "color": "yellow",
+            "title": "Anki",
+            "text": "Front: \"The capital of {{c1::France}} is {{c2::Paris}}, \n\nEscape :: #tag:link:https://codepen.io/chriscoyier/pen/AwVNjg#tag:link:\n\n\nThe currency used in {{c1}} is {{c3::Euro}}\"\nBack: \"France, Paris, Euro\"\n"
+        },
+        {
+            "x": 661,
+            "y": 371,
+            "height": 200,
+            "width": 250,
+            "color": "yellow",
+            "title": "",
+            "text": "github add key\n\n#tag:link:https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#tag:link: "
+        },
+        {
+            "x": 739,
+            "y": 557,
+            "height": 345,
+            "width": 461,
+            "color": "yellow",
+            "title": "Vim find",
+            "text": "In Vim, you can use the \":%s/old-text/new-text/g\" command to find and replace all occurrences of \"old-text\" with \"new-text\" in the entire file.\n\nHere's an example:\n\n:%s/old-text/new-text/g\n\nThis will replace all instances of \"old-text\" with \"new-text\" in the entire file.\n\nAdditionally, you can use the command :%s/old-text/new-text/gc to find and replace all occurrences and ask for confirmation before replacement."
+        }
+    ],
+    "FTXUI": [
+        {
+            "x": 320,
+            "y": 109,
+            "height": 200,
+            "width": 330,
+            "color": "yellow",
+            "title": "Resourses",
+            "text": "https://arthursonzogni.github.io/FTXUI/files.html"
+        },
+        {
+            "x": 789,
+            "y": 340,
+            "height": 467,
+            "width": 411,
+            "color": "yellow",
+            "title": "Basic Document Setup",
+            "text": "##include <iostream>\n##include <ftxui/dom/elements.hpp>\n##include <ftxui/screen/screen.hpp>\n\nusing namespace ftxui;\n\nint main(void) {\n    // Define the document\n     Element document =\n        hbox({\n           text(\"left\") | border,\n           text(\"middle\") | border | flex, //make this responsive\n           text(\"right\") | border,\n        });\n    \n    // Create screen and set up dimension\n    auto screen = Screen:\u200b:Create(\n         Dimension:\u200b:Full(), // Width\n         Dimesion:\u200b:Fit(document) // Height\n    );\n \n    // Render and Print screen\n    Render(screen, document);\n    screen.Print();\n    return EXIT_SUCCESS;\n}\n"
+        },
+        {
+            "x": 480,
+            "y": 60,
+            "height": 856,
+            "width": 720,
+            "color": "yellow",
+            "title": "Has basic input",
+            "text": "##include <functional>  // for function\n##include <memory>      // for shared_ptr, allocator, __shared_ptr_access\n##include <string>      // for string, basic_string\n##include <vector>      // for vector\n \n##include \"ftxui/component/captured_mouse.hpp\"  // for ftxui\n##include \"ftxui/component/component.hpp\"  // for Slider, Checkbox, Vertical, Renderer, Button, Input, Menu, Radiobox, Toggle\n##include \"ftxui/component/component_base.hpp\"  // for ComponentBase\n##include \"ftxui/component/screen_interactive.hpp\"  // for Component, ScreenInteractive\n##include \"ftxui/dom/elements.hpp\"  // for separator, operator|, Element, size, xflex, text, WIDTH, hbox, vbox, EQUAL, border, GREATER_THAN\n \nusing namespace ftxui;\n \n// Display a component nicely with a title on the left.\nComponent Wrap(std::string name, Component component) {\n  return Renderer(component, [name, component] {\n    return hbox({\n               text(name) | size(WIDTH, EQUAL, 8),\n               separator(),\n               component->Render() | xflex,\n           }) |\n           xflex;\n  });\n}\n \nint main(int argc, const char* argv[]) {\n  auto screen = ScreenInteractive::FitComponent();\n \n  // -- Menu\n  // ----------------------------------------------------------------------\n  const std::vector<std::string> menu_entries = {\n      \"Menu 1\",\n      \"Menu 2\",\n      \"Menu 3\",\n      \"Menu 4\",\n  };\n  int menu_selected = 0;\n  auto menu = Menu(&menu_entries, &menu_selected);\n  menu = Wrap(\"Menu\", menu);\n \n  // -- Toggle------------------------------------------------------------------\n  int toggle_selected = 0;\n  std::vector<std::string> toggle_entries = {\n      \"Toggle_1\",\n      \"Toggle_2\",\n  };\n  auto toggle = Toggle(&toggle_entries, &toggle_selected);\n  toggle = Wrap(\"Toggle\", toggle);\n \n  // -- Checkbox ---------------------------------------------------------------\n  bool checkbox_1_selected = false;\n  bool checkbox_2_selected = false;\n  bool checkbox_3_selected = false;\n  bool checkbox_4_selected = false;\n \n  auto checkboxes = Container::Vertical({\n      Checkbox(\"checkbox1\", &checkbox_1_selected),\n      Checkbox(\"checkbox2\", &checkbox_2_selected),\n      Checkbox(\"checkbox3\", &checkbox_3_selected),\n      Checkbox(\"checkbox4\", &checkbox_4_selected),\n  });\n  checkboxes = Wrap(\"Checkbox\", checkboxes);\n \n  // -- Radiobox ---------------------------------------------------------------\n  int radiobox_selected = 0;\n  std::vector<std::string> radiobox_entries = {\n      \"Radiobox 1\",\n      \"Radiobox 2\",\n      \"Radiobox 3\",\n      \"Radiobox 4\",\n  };\n  auto radiobox = Radiobox(&radiobox_entries, &radiobox_selected);\n  radiobox = Wrap(\"Radiobox\", radiobox);\n \n  // -- Input ------------------------------------------------------------------\n  std::string input_label;\n  auto input = Input(&input_label, \"placeholder\");\n  input = Wrap(\"Input\", input);\n \n  // -- Button -----------------------------------------------------------------\n  std::string button_label = \"Quit\";\n  std::function<void()> on_button_clicked_;\n  auto button = Button(&button_label, screen.ExitLoopClosure());\n  button = Wrap(\"Button\", button);\n \n  // -- Slider -----------------------------------------------------------------\n  int slider_value_1 = 12;\n  int slider_value_2 = 56;\n  int slider_value_3 = 128;\n  auto sliders = Container::Vertical({\n      Slider(\"R:\", &slider_value_1, 0, 256, 1),\n      Slider(\"G:\", &slider_value_2, 0, 256, 1),\n      Slider(\"B:\", &slider_value_3, 0, 256, 1),\n  });\n  sliders = Wrap(\"Slider\", sliders);\n \n  // -- Layout -----------------------------------------------------------------\n  auto layout = Container::Vertical({\n      menu,\n      toggle,\n      checkboxes,\n      radiobox,\n      input,\n      sliders,\n      button,\n  });\n \n  auto component = Renderer(layout, [&] {\n    return vbox({\n               menu->Render(),\n               separator(),\n               toggle->Render(),\n               separator(),\n               checkboxes->Render(),\n               separator(),\n               radiobox->Render(),\n               separator(),\n               input->Render(),\n               separator(),\n               sliders->Render(),\n               separator(),\n               button->Render(),\n           }) |\n           xflex | size(WIDTH, GREATER_THAN, 40) | border;\n  });\n \n  screen.Loop(component);\n \n  return 0;\n}"
+        },
+        {
+            "x": 0,
+            "y": 457,
+            "height": 483,
+            "width": 700,
+            "color": "yellow",
+            "title": "",
+            "text": "##include <memory>  // for allocator, __shared_ptr_access\n##include <string>  // for char_traits, operator+, string, basic_string\n \n##include \"ftxui/component/captured_mouse.hpp\"  // for ftxui\n##include \"ftxui/component/component.hpp\"       // for Input, Renderer, Vertical\n##include \"ftxui/component/component_base.hpp\"  // for ComponentBase\n##include \"ftxui/component/component_options.hpp\"  // for InputOption\n##include \"ftxui/component/screen_interactive.hpp\"  // for Component, ScreenInteractive\n##include \"ftxui/dom/elements.hpp\"  // for text, hbox, separator, Element, operator|, vbox, border\n##include \"ftxui/util/ref.hpp\"  // for Ref\n\n##include <iostream>\n\n##include <fstream>\n##include <vector>\n##include <functional>\n\n##include \"ftxui/screen/screen.hpp\"\n##include \"ftxui/screen/string.hpp\"\n\n"
+        },
+        {
+            "x": 149,
+            "y": 178,
+            "height": 480,
+            "width": 396,
+            "color": "yellow",
+            "title": "refrence demo",
+            "text": "#tag:link:https://arthursonzogni.github.io/FTXUI/examples/?file=component/composition#tag:link:\n\n\n#tag:link:https://arthursonzogni.github.io/FTXUI/examples_2dom_2dbox_8cpp-example.html##a0#tag:link:\n\n\n#tag:link:https://arthursonzogni.github.io/FTXUI/examples_2dom_2paragraph_8cpp-example.html#tag:link:\n\n\n#tag:link:https://arthursonzogni.github.io/FTXUI/examples_2dom_2table_8cpp-example.html#tag:link:\n\n#tag:link:https://arthursonzogni.github.io/FTXUI/examples_2component_2collapsible_8cpp-example.html#tag:link:\n\n#tag:link:https://arthursonzogni.github.io/FTXUI/examples_2component_2input_8cpp-example.html#tag:link:\n\n"
+        }
+    ],
+    "De Anza": [
+        {
+            "x": 795,
+            "y": 465,
+            "height": 200,
+            "width": 330,
+            "color": "yellow",
+            "title": "Login",
+            "text": "Campuswide ID:\n20550160\n\n\nPass:\nTakashi!!\n\n\n\n\n90066\n\n"
+        },
+        {
+            "x": 781,
+            "y": 465,
+            "height": 200,
+            "width": 359,
+            "color": "yellow",
+            "title": "programming classes",
+            "text": "beginning foothill:\n40141\n\nintermediate c++ foothill:\n41168 - david\n\n40142"
+        },
+        {
+            "x": 579,
+            "y": 328,
+            "height": 200,
+            "width": 330,
+            "color": "yellow",
+            "title": "calculus",
+            "text": ""
+        },
+        {
+            "x": 795,
+            "y": 465,
+            "height": 200,
+            "width": 330,
+            "color": "yellow",
+            "title": "ee",
+            "text": "foothill\n\nintro to circuit analysis\n40578\n\nphysics 4B\n\t40925\t"
+        }
+    ],
+    "ChatGPT Prompts": [
+        {
+            "x": 949,
+            "y": 649,
+            "height": 376,
+            "width": 364,
+            "color": "yellow",
+            "title": "Cloze deletion code",
+            "text": "can you make an anki card testing me on a code example of\n\n====pointers====\n\nusing close deletions that hide various parts of the code on the front side of the card. \n\nthere shouldn't be a back side to the card. \n\nHere is an example of what I want you to create, and it this example, the user is being tested on which way the << and >> go for cin and cout\n##include <iostream> \nusing namespace std;\n\nint number = 0;\n\nint main() {\n    cout {{c1::<<}} \"Enter a number\";\n    cin {{c2::>>}} number;\n}\n\ndont use that example, im just showing it so you can understand what format I want this card to be in. \n\nThe card should not test on the output, and the cloze deletions should be around the parts of the code necessary for the concept. the purpose of these cards is to test myself on being able to type out the syntax of these cards\n\n\n\n\n\n\n\n\n\n"
+        },
+        {
+            "x": 223,
+            "y": 88,
+            "height": 324,
+            "width": 443,
+            "color": "yellow",
+            "title": "3 with cloze deletions",
+            "text": "can you make an anki card testing me on a code example of\n\nA function of While loops that can  iterate through arrays or various sizes\n\nIn the language of c++,\n\nusing the game Pokemon as an example in the code,\n\nusing close deletions that hide various parts of the code on the front side of the card. \n\nthe purpose of these cards is to test myself on being able to type out the syntax of these cards.\n\n\nHere is an example of what I want you to create, and it this example, the user is being tested on which way the << and >> go for cin and cout:\n\nSTART OF EXAMPLE\n\nFRONT \n\nWrite a program where the user inputs a number and then the program outputs that number\n\n\n##include <iostream> \nusing namespace std;\n\nint number = 0;\n\nint main() {\n    cout {{c1::<<}} \"Enter a number\";\n    cin {{c2::>>}} number;\n}\n\n\nOutput:\nEnter a number\n[user inputs 5]\n5\n\n\nBACK\nthere is no back\n\nEND OF EXAMPLE\n\ndont use that example, im just showing it so you can understand what format I want this card to be in. \n\nThe card should not test on the output, and the cloze deletions should be around the parts of the code necessary for the concept. \n\nThere should not be a back side to the card. \nThere should be an output of the code on the front of the card, after the code. Always show what the output would be, ans shown in the code example I provided. \nThere shouldn't be an cloze deletion on the output ever.\nThere should at least be one cloze deletion. \nThe front side should have a cloze deletion in the code snippet, and There shouldn\u2019t be a separate cloze deletion section after the front side.\nMake the cloze deletions on code only. Cloze deletions should only be on code. Cloze deletions should not be on anything that isn\u2019t code.\nGive me the same result two more times after the first, one with different cloze deletions, and another also with different cloze deletions. \nDo not put cloze deletions around things that don\u2019t have to do with the code syntax like arbitrary variable names that are subject to change. \n\n\nAdd a sentence or two before the code explaining what it does if necessary. This sentence before the code should not contain any cloze deletions.\n\nDo not return a card if it does not meet those criteria. "
+        },
+        {
+            "x": 231,
+            "y": 111,
+            "height": 352,
+            "width": 520,
+            "color": "yellow",
+            "title": "2 with cloze, 1 without",
+            "text": "can you make an anki card testing me on a code example of\n\nA function of While loops that can  iterate through arrays or various sizes,\n\nIn the language of c++,\n\nusing the game Pokemon as an example in the code,\n\nusing close deletions that hide various parts of the code on the front side of the card. \n\nthe purpose of these cards is to test myself on being able to type out the syntax of these cards.\n\n\nHere is an example of what I want you to create, and it this example, the user is being tested on which way the << and >> go for cin and cout:\n\nSTART OF EXAMPLE\n\nFRONT \n\nWrite a program where the user inputs a number and then the program outputs that number\n\n\n##include <iostream> \nusing namespace std;\n\nint number = 0;\n\nint main() {\n    cout {{c1::<<}} \"Enter a number\";\n    cin {{c2::>>}} number;\n}\n\n\nOutput:\nEnter a number\n[user inputs 5]\n5\n\n\nBACK\nthere is no back\n\nEND OF EXAMPLE\n\ndont use that example, im just showing it so you can understand what format I want this card to be in. \n\nThe card should not test on the output, and the cloze deletions should be around the parts of the code necessary for the concept. \n\nThere should not be a back side to the card. \nThere should be an output of the code on the front of the card, after the code. Always show what the output would be, ans shown in the code example I provided. \nThere shouldn't be an cloze deletion on the output ever.\nThere should at least be one cloze deletion. \nThe front side should have a cloze deletion in the code snippet, and There shouldn\u2019t be a separate cloze deletion section after the front side.\nMake the cloze deletions on code only. Cloze deletions should only be on code. Cloze deletions should not be on anything that isn\u2019t code.\nGive me the same result two more times after the first, one with different cloze deletions, and another without any cloze deletions. \nDo not put cloze deletions around things that don\u2019t have to do with the code syntax like arbitrary variable names that are subject to change. \n\n\nAdd a sentence or two before the code explaining what it does if necessary. This sentence before the code should not contain any cloze deletions.\n\nDo not return a card if it does not meet those criteria. "
+        },
+        {
+            "x": 771,
+            "y": 301,
+            "height": 144,
+            "width": 1074,
+            "color": "yellow",
+            "title": "3 with no cloze deletions",
+            "text": "can you make an anki card testing me on a code example of\n\nA function of While loops that can  iterate through arrays or various sizes\n\nIn the language of c++,\n\nusing the game Pokemon as an example in the code.\n\nthe purpose of these cards is to test myself on being able to type out the syntax of these cards.\n\n\nHere is an example of what I want you to create, and it this example, the user is being tested on which way the << and >> go for cin and cout:\n\nSTART OF EXAMPLE\n\nFRONT \n\nWrite a program where the user inputs a number and then the program outputs that number\n\n\n##include <iostream> \nusing namespace std;\n\nint number = 0;\n\nint main() {\n    cout << \"Enter a number\";\n    cin >> number;\n}\n\n\nOutput:\nEnter a number\n[user inputs 5]\n5\n\n\nBACK\nthere is no back\n\nEND OF EXAMPLE\n\ndont use that example, im just showing it so you can understand what format I want this card to be in. \n\nThe card should not test on the output.\n\nThere should not be a back side to the card. \nThere should be an output of the code on the front of the card, after the code. Always show what the output would be, ans shown in the code example I provided. \n\nThere should always be a code snippet.\nGive me the same result two more times after the first but with different examples that are structured in a different way that include increasingly more advanced techniques. \n\n\nAdd a sentence or two before the code explaining what it does if necessary. This sentence before the code should not contain any cloze deletions.\n\nDo not return a card if it does not meet those criteria. "
+        },
+        {
+            "x": 39,
+            "y": 212,
+            "height": 817,
+            "width": 620,
+            "color": "yellow",
+            "title": "Dr. Karr",
+            "text": "Hello, you are a professional listener with 50 years of experience in listening. \n\nProfessional listeners are great at listening, say very little, and almost never give advice unless asked.\n\nyou do not have to repeat what I said back to me.\n\nYour name is Dr. Karr. You have a great personal life with a great family and you have great habits and good health. Although you have a phd, when you are in a session, you focus on just being a genuine and real person. What makes you effective is you draw from your personal life, and you make real connections with your clients. You have a genuine love for your clients. \n\nsay things like \"I'm just listening, you can tell me more\", or \"go on\", or \"I'm just taking this in\", you should be asking me to talk more most of the time and you should subtly ask questions occasionally which guide the conversation in ways that could help me learn more about myself. But do this sparingly\n\nRARELY give advice, and say very little. You can talk about your fictional personal life, especially if asked.  (I know you are an ai, just make something up because we are role playing)\n\nthis is a role play, and you are playing the role of professional listener and I am the patient. Do you understand? \n"
+        },
+        {
+            "x": 480,
+            "y": 137,
+            "height": 200,
+            "width": 363,
+            "color": "yellow",
+            "title": "Role-play workaround",
+            "text": "(I know you are an ai, just make something up because we are role playing)"
+        },
+        {
+            "x": 20,
+            "y": 271,
+            "height": 200,
+            "width": 330,
+            "color": "yellow",
+            "title": "AA Sponsor",
+            "text": "You are my AA sponsor, but instead of alcohol, the group we are in is for media, porn, and videogame addiction. \n\nI am stuggling with those three areas. \n\nThis is a role play and you are playing the roll of sponsor, and I am your sponsoree. \n\nYou are very successful now in many areas of life, especially business. You have your media, porn, and videogame addiction under control, but it wasn't easy. \n\ndo you understand?"
+        },
+        {
+            "x": 315,
+            "y": 1079,
+            "height": 200,
+            "width": 375,
+            "color": "yellow",
+            "title": "Breakdown explanation",
+            "text": "for that code example, in the order of execution in the program please show each step in that execution with a quote from that part of the code that is being executed, and for each step explain what is happening?\n\nsame thing, but explain in several highly detailed paragraphs for each step, also give the variable/array values output for each step  "
+        }
+    ],
+    "Vim": [
+        {
+            "x": 65,
+            "y": 34,
+            "height": 200,
+            "width": 250,
+            "color": "yellow",
+            "title": "",
+            "text": "// open a split\nsp\n\n// resize split\nresize 10\nresize -12\nresize +21"
+        }
+    ]
+}

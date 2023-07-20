@@ -1,0 +1,33 @@
+{
+   "action": {
+      "default_icon": "48.png",
+      "default_popup": "popup.html"
+   },
+   "author": "openHacking",
+   "background": {
+      "service_worker": "background.bundle.js"
+   },
+   "content_scripts": [ {
+      "css": [ "content.styles.css" ],
+      "js": [ "contentScript.bundle.js" ],
+      "matches": [ "https://chat.openai.com/*" ]
+   } ],
+   "description": "A Chrome extension that exports ChatGPT chat history as Markdown text",
+   "differential_fingerprint": "1.50c808860317059e6bb0b64bd7d7f19e2423d5a1bd0b60309e613d744f4fb50e",
+   "homepage_url": "http://chatopenai.pro/",
+   "icons": {
+      "128": "128.png",
+      "16": "16.png",
+      "48": "48.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAo8asO2cuftz30b/NCCwmyGVG0J04Wv8K10iw/FzQBqUUVhH7kz+/n/AkzzA5iPMLgKjDR8vp/cD9Ah/BOHhQ/d4ej6w51qCZwa0jRLgCbQhU2+svt+oEKfmTxKocJERe7Gc+D8EQqHGbvk3cN4cZzDyhHvGOwfiXwMC+XfdPBgZ4hlWAlmyWx6q75y6ilvfZzCd4J6cDWlAM7w8/JPAWJ2oB61ohdHJkYNMoO1/BTBRE4uW4cqpKz4LtSIqSdh8QRs9zmttY8ZdBn/KTwAgUq/L4fFTr4kLiVS81qEsW7wANowXclVyKwB0F0pm/aZzihqCrl4bIiaDfQbInrotg7QIDAQAB",
+   "manifest_version": 3,
+   "name": "ChatGPT to Markdown",
+   "options_page": "options.html",
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.9",
+   "web_accessible_resources": [ {
+      "matches": [  ],
+      "resources": [ "content.styles.css", "128.png", "48.png", "16.png" ]
+   } ]
+}

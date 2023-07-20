@@ -1,0 +1,6 @@
+2023/06/11-12:22:43.351 15b11c Creating DB /home/donji/.config/chromium/Default/IndexedDB/https_images-na.ssl-images-amazon.com_0.indexeddb.leveldb since it was missing.
+2023/06/11-12:22:43.361 15b11c Reusing MANIFEST /home/donji/.config/chromium/Default/IndexedDB/https_images-na.ssl-images-amazon.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/06/11-12:23:03.617 15b11d Level-0 table #5: started
+2023/06/11-12:23:03.637 15b11d Level-0 table #5: 379 bytes OK
+2023/06/11-12:23:03.648 15b11d Delete type=0 #3
+2023/06/11-12:23:03.648 15b11d Manual compaction at level-0 from (begin) .. (end); will stop at (end)

@@ -1,0 +1,1 @@
+chrome.runtime.onInstalled.addListener((function(e){e.reason===chrome.runtime.OnInstalledReason.INSTALL&&chrome.tabs.create({url:"https://chatopenai.pro/chatgpt-to-markdown/"})}));

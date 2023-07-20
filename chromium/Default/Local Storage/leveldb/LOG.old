@@ -1,0 +1,18 @@
+2023/06/22-21:52:49.462 5 Reusing MANIFEST /home/donji/.config/chromium/Default/Local Storage/leveldb/MANIFEST-000001
+2023/06/22-21:52:49.463 5 Recovering log #53
+2023/06/22-21:52:49.464 5 Reusing old log /home/donji/.config/chromium/Default/Local Storage/leveldb/000053.log 
+2023/06/22-22:29:19.773 21 Level-0 table #57: started
+2023/06/22-22:29:19.800 21 Level-0 table #57: 49798 bytes OK
+2023/06/22-22:29:19.822 21 Delete type=0 #53
+2023/06/22-22:29:19.828 21 Compacting 4@0 + 1@1 files
+2023/06/22-22:29:19.842 21 Generated table #58@0: 370 keys, 415299 bytes
+2023/06/22-22:29:19.842 21 Compacted 4@0 + 1@1 files => 415299 bytes
+2023/06/22-22:29:19.846 21 compacted to: files[ 0 1 1 0 0 0 0 ]
+2023/06/22-22:29:19.855 21 Delete type=2 #49
+2023/06/22-22:29:19.855 21 Delete type=2 #54
+2023/06/22-22:29:19.855 21 Delete type=2 #57
+2023/06/22-22:29:19.855 21 Delete type=2 #47
+2023/06/22-22:29:19.856 21 Delete type=2 #51
+2023/06/22-22:30:32.126 21 Level-0 table #60: started
+2023/06/22-22:30:32.700 21 Level-0 table #60: 47272 bytes OK
+2023/06/22-22:30:40.084 21 Delete type=0 #56

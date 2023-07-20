@@ -1,0 +1,10 @@
+[Unit]
+Description=Connect Bluetooth Speaker
+
+[Service]
+Type=oneshot
+ExecStart=/home/donji/.local/bin/connect-bt-speaker.sh
+
+[Install]
+WantedBy=default.target
+

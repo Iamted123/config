@@ -1,0 +1,7 @@
+2023/06/21-23:02:01.793 732 Reusing MANIFEST /home/donji/.config/chromium/Default/IndexedDB/https_www.thelightphone.com_0.indexeddb.leveldb/MANIFEST-000001
+2023/06/21-23:02:01.793 732 Recovering log #3
+2023/06/21-23:02:01.794 732 Reusing old log /home/donji/.config/chromium/Default/IndexedDB/https_www.thelightphone.com_0.indexeddb.leveldb/000003.log 
+2023/06/22-03:13:07.330 5719 Level-0 table #5: started
+2023/06/22-03:13:07.940 5719 Level-0 table #5: 1633 bytes OK
+2023/06/22-03:13:08.124 5719 Delete type=0 #3
+2023/06/22-03:13:08.138 5719 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
